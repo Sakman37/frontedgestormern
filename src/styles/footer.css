@@ -1,0 +1,16 @@
+.footer-logo {
+  max-width: 420px;
+}
+
+
+
+
+
+footer {
+  background-color: #000; /* Fondo negro */
+  width: 100%;
+  height: auto; /* Se ajusta al contenido */
+  padding: 10px 0; /* Espaciado interno */
+  text-align: center; /* Centra el texto */
+  color: white;
+}

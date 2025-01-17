@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: aqua;
+  background: aliceblue;
+  
+}
+
+.container {
+  background-color: transparent;
+  margin: auto;
+  width: 90%;  /* Cambié el valor a 90% para que ocupe el 90% del ancho de la pantalla */
+  max-width: 400px;  /* Limita el tamaño máximo a 400px */
+
+
+
+}
+.contacto {
+  background-color: transparent;
+  margin: auto;
+  width: 70000px; ;  /* Cambié el valor a 90% para que ocupe el 90% del ancho de la pantalla */
+  max-width: 2000px;  /* Limita el tamaño máximo a 400px */
+  height: 700px;
+
+}
+
+.enlaces-text {
+  font-size: 1.1rem;  
+  font-weight: bold;
+  text-transform: uppercase;  
+  letter-spacing: 2px;  
+}
+
+.no-underline {
+  text-decoration: none !important;  
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+.logo-text {
+  font-size: 22px;
+  font-family: "Concert One", sans-serif;
+  text-align: right;
+  margin-left: auto;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
+}
+
+.contacto {
+  background-color: transparent; /* Fondo claro */
+  padding: 3rem 0;
+}
+
+.contact-info h4,
+.contact-info h5 {
+  color: #ffffff; /* Texto oscuro */
+}
+
+.contact-info a {
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  display: block; /* Asegúrate de que solo se muestre uno */
+}
+
+footer + footer {
+  display: none; /* Oculta el footer adicional si aparece por error */
+}
