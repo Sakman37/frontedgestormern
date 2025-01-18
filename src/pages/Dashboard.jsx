@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/dashboard.css';  // Asegúrate de que el archivo CSS esté importado correctamente
+import '../styles/dashboard.css';
+
+// Usar la URL del backend desde las variables de entorno
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5006";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -15,22 +18,24 @@ const Dashboard = () => {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
 
+  // Cargar datos del usuario y tareas al iniciar sesión
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (!token || !user) return navigate('/');
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    
+    if (!token || !storedUser) return navigate('/');
 
-    setUser(user);
+    setUser(storedUser);
 
     const fetchTasks = async () => {
       try {
-        const tasksRes = await axios.get('http://localhost:5006/api/tasks', {
+        const tasksRes = await axios.get(`${API_URL}/api/tasks`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTasks(tasksRes.data);
       } catch (error) {
-        console.error("Error fetching tasks:", error);
-        alert("Hubo un error al obtener las tareas.");
+        console.error("Error al obtener tareas:", error);
+        alert("Hubo un error al cargar las tareas.");
       }
     };
     fetchTasks();
@@ -43,20 +48,20 @@ const Dashboard = () => {
 
     try {
       if (isEditing) {
-        const updatedTask = await axios.put(`http://localhost:5006/api/tasks/${selectedTask._id}`,
+        const updatedTask = await axios.put(`${API_URL}/api/tasks/${selectedTask._id}`,
           { title, description, deadline, status },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setTasks(tasks.map(task => task._id === updatedTask.data._id ? updatedTask.data : task));
       } else {
-        const newTask = await axios.post('http://localhost:5006/api/tasks',
+        const newTask = await axios.post(`${API_URL}/api/tasks`,
           { title, description, deadline, status },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setTasks([...tasks, newTask.data]);
       }
     } catch (error) {
-      console.error("Error adding/updating task:", error);
+      console.error("Error al guardar la tarea:", error);
       alert("Hubo un error al guardar la tarea.");
     }
 
@@ -78,12 +83,12 @@ const Dashboard = () => {
   const deleteTask = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:5006/api/tasks/${id}`, {
+      await axios.delete(`${API_URL}/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter(task => task._id !== id));
     } catch (error) {
-      console.error("Error deleting task:", error);
+      console.error("Error al eliminar tarea:", error);
       alert("Hubo un error al eliminar la tarea.");
     }
   };

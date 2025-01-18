@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/login.css';
 
+// Usar la URL del backend desde las variables de entorno
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5006";
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,18 +19,14 @@ const Login = () => {
       const endpoint = isRegistering ? 'register' : 'login';
       const data = isRegistering ? { name, email, password } : { email, password };
 
-      console.log('Datos enviados:', data); // Verificar los datos enviados
-
-      const res = await axios.post(`http://localhost:5006/api/auth/${endpoint}`, data, {
+      const res = await axios.post(`${API_URL}/api/auth/${endpoint}`, data, {
         headers: { 'Content-Type': 'application/json' }
       });
 
-      console.log('Respuesta del servidor:', res); // Verificar la respuesta
-
       if (!isRegistering) {
         localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data.user));  // Guardamos el usuario
-        navigate('/dashboard');
+        localStorage.setItem('user', JSON.stringify(res.data.user));  // Guardamos el usuario en localStorage
+        navigate('/dashboard');  // Redirigir al Dashboard
       } else {
         alert('Registro exitoso, ahora inicia sesión.');
         setIsRegistering(false);
