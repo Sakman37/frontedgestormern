@@ -5,18 +5,29 @@ html, body {
   width: 100%;
   height: 100%;
   background: #000;
+ 
+  
 }
+
 
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw; /* Ocupar todo el ancho de la pantalla */
-  min-height: 100vh; /* Ocupar al menos toda la pantalla */
-  background: url('2588.jpg') no-repeat center center;
+  width: 100vw;
+  min-height: 100vh;
+  background: url('2588.jpg') no-repeat center center fixed;
   background-size: cover;
+  background-attachment: fixed; /* Fija el fondo para evitar desplazamiento */
 }
+@media (max-width: 768px) {
+  .wrapper {
+    background-attachment: scroll; /* Evita problemas en móviles */
+    background-size: cover;
+  }
+}
+
 
 
 
