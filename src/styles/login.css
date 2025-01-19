@@ -18,40 +18,8 @@ html, body {
   background-size: cover;
 }
 
-/* Responsivo para pantallas pequeñas (celulares) */
-@media (max-width: 576px) {
-  body {
-    padding-top: 60px;  /* Ajusta el valor para pantallas más pequeñas */
-  }
 
-  .wrapper {
-    width: 90%;  /* Asegura que ocupe más espacio en pantallas pequeñas */
-    max-width: 350px;  /* Limita el tamaño máximo a 350px */
-    padding: 20px;  /* Reduce el padding para pantallas pequeñas */
-    margin-top: 15vh;  /* Ajusta el margen superior */
-  }
 
-  .wrapper h1 {
-    font-size: 28px;  /* Ajusta el tamaño de fuente para pantallas pequeñas */
-  }
-
-  .wrapper .input-box {
-    margin: 20px 0;  /* Reduce el margen en pantallas pequeñas */
-  }
-}
-
-/* Responsivo para pantallas medianas (tabletas) */
-@media (max-width: 768px) {
-  .wrapper {
-    width: 80%;  /* Ocupa un 80% del ancho de la pantalla */
-    max-width: 380px;  /* Limita el tamaño máximo a 380px */
-    margin-top: 18vh;  /* Ajusta el margen superior */
-  }
-
-  .wrapper h1 {
-    font-size: 32px;  /* Ajusta el tamaño de la fuente para pantallas medianas */
-  }
-}
 
 
 /* Estructura general */

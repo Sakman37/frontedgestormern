@@ -64,7 +64,11 @@ const Dashboard = () => {
       console.error("Error al guardar la tarea:", error);
       alert("Hubo un error al guardar la tarea.");
     }
-
+    setTitle('');
+    setDescription('');
+    setDeadline('');
+    setStatus('pendiente');
+    
     setShowForm(false);
     setIsEditing(false);
     setSelectedTask(null);
@@ -157,5 +161,7 @@ const Dashboard = () => {
     </div>
   );
 };
+
+
 
 export default Dashboard;
