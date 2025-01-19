@@ -5,9 +5,11 @@ body {
   background-size: cover;
   background-position: center;
   font-family: Arial, sans-serif;
-  min-height: 120vh;
-  min-width: 150vh;
+  min-height: 100vh;
+  min-width: 70vh;
+  
 }
+
 
 .contacto-container {
   display: flex;
@@ -84,17 +86,7 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* 📌 Ajustes para pantallas pequeñas (modo columna en móviles) */
-@media (max-width: 768px) {
-  .contacto-container {
-    flex-direction: column; /* En pantallas pequeñas, apila los elementos */
-  }
-  
-  .contacto-form, .mapa-container {
-    width: 100%; /* Ocupa el ancho completo */
-    max-width: 400px; /* Limita el tamaño */
-  }
-}
+
 
 /* Oculta footers duplicados */
 footer {
