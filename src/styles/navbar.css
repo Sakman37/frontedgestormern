@@ -453,3 +453,11 @@ body {
 .toggle-login-button:hover {
   background-color: #45a049;
 }
+
+.enlaces-text{
+  font-size: 1.0rem; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+  color: #3498db; /* Azul profesional */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  color: white;
+}

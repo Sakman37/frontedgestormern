@@ -3,6 +3,7 @@
   background: linear-gradient(to bottom, #000000, #1a1a1a, #00cc11);
   padding: 50px 20px;
   min-height: 100vh;
+  min-width: 60vh;
   color: white;
 }
 
